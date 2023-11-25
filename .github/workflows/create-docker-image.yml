@@ -11,13 +11,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
-    - name: Set up Docker
-      uses: docker/setup-docker@v2
-      with:
-        dockerfile: Dockerfile
-        context: .
+    - name: Check Docker Version
+      run: docker --version
 
     - name: Build Docker image
       run: docker build -t ${{ github.repository }} .
